@@ -1,4 +1,4 @@
-package com.example.slideshow;
+package com.example.relaxslide;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 public class MainActivity extends Activity implements View.OnClickListener {
+
     EditText editTextStr, editTextNum;
     Button btnSave, btnLoad;
     SharedPreferences sharedPreferences;
@@ -66,8 +67,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Toast.makeText(this, "Loaded", Toast.LENGTH_SHORT).show();
     }
 
+    public void play(View view) {
+    }
+
+    public void pause(View view) {
+    }
+
+    public void stop(View view) {
+    }
+
     public static class Main extends AppCompatActivity {
-        private static final android.R.attr R = ;
         private final int[] mDrawablesArray = {R.drawable.neitralnoe, R.drawable.schastie, R.drawable.zlost_,
         };
         ViewFlipper mViewFlipper;
@@ -93,3 +102,4 @@ public class MainActivity extends Activity implements View.OnClickListener {
             mViewFlipper.addView(image);
         }
     }
+}

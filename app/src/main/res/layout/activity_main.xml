@@ -6,22 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="relax"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        tools:ignore="HardcodedText" />
-
     <Button
         android:id="@+id/save"
         android:layout_width="103dp"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:layout_marginStart="256dp"
         android:layout_marginLeft="256dp"
         android:layout_marginTop="512dp"
@@ -40,18 +28,16 @@
 
     <Button
         android:id="@+id/load"
-        android:layout_width="103dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
+        android:layout_width="178dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="171dp"
         android:layout_marginTop="512dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginRight="252dp"
+        android:layout_marginEnd="78dp"
         android:layout_marginBottom="16dp"
-        android:text="Load"
+        android:text="Вспомнить всё"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -60,21 +46,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="97dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="316dp"
-        android:layout_marginRight="316dp"
-        android:layout_marginBottom="166dp"
-        android:text="номер записи"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_width="370dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="2dp"
+        android:text="поставь пометку своему воспоминанию:"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNum"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43"
+        app:layout_constraintTop_toBottomOf="@+id/playButton"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -87,7 +69,7 @@
         android:layout_marginEnd="95dp"
         android:layout_marginRight="95dp"
         android:layout_marginBottom="162dp"
-        android:text="Запись дневника"
+        android:text="Запись дневника:"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -101,17 +83,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="255dp"
+        android:layout_marginBottom="9dp"
+
         android:autoText="true"
+        android:hint="@string/put_number"
         android:singleLine="true"
-        android:text="поставь номер"
+        android:text=""
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/editTextStr"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.57"
         tools:ignore="Autofill,HardcodedText,LabelFor,UnknownId" />
 
     <EditText
@@ -124,55 +108,24 @@
         android:layout_marginBottom="71dp"
         android:singleLine="false"
 
-        android:text="пиши сюда"
+        android:text=""
+        android:hint="@string/write_here"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="Autofill,HardcodedText,UnknownId" />
 
 
-    <ViewFlipper
-        android:id="@+id/viewFlipper1"
-        android:layout_width="419dp"
-        android:layout_height="731dp"
-
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="283dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414" />
-
     <Button
         android:id="@+id/playButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
+        android:layout_marginBottom="6dp"
         android:onClick="play"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/pauseButton"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/pauseButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Pause"
-        android:onClick="pause"
-        app:layout_constraintLeft_toRightOf="@id/playButton"
-        app:layout_constraintRight_toLeftOf="@id/stopButton"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Stop"
-        android:onClick="stop"
-        app:layout_constraintLeft_toRightOf="@id/pauseButton"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="Хочу расслабиться под свои воспоминания"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

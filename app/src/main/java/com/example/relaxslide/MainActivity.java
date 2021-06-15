@@ -3,6 +3,7 @@ package com.example.relaxslide;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +17,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     EditText editTextStr, editTextNum;
     Button btnSave, btnLoad;
     SharedPreferences sharedPreferences;
-/*
-    final String SAVED_TEXT = "TEXT";
-    final String SAVED_NUM = "NUMBER";
-*/
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,28 +43,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
             default:
                 break;
         }
-
     }
 
     void saveData() {
         sharedPreferences = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString(SAVED_TEXT, editTextStr.getText().toString());
-        editor.putInt(editTextStr.getText().toString(), Integer.parseInt(editTextNum.getText().toString()));
+        editor.putString(editTextNum.getText().toString(), editTextStr.getText().toString());
+//        editor.putInt(editTextStr.getText().toString(), Integer.parseInt(editTextNum.getText().toString()));
         editor.commit();
-        Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+        editTextNum.setText("");editTextStr.setText("");
     }
 
     void loadData() {
         sharedPreferences = getPreferences(MODE_PRIVATE);
-        // String savedText = sharedPreferences.getString(SAVED_TEXT, "");
-        Integer savedNum = sharedPreferences.getInt(editTextStr.getText().toString(), 0);
+        String n_record=editTextNum.getText().toString();
+        String savedText = sharedPreferences.getString(n_record, "");
+//        Integer savedNum = sharedPreferences.getInt(editTextStr.getText().toString(), 0);
         //editTextStr.setText(savedText);
-        editTextNum.setText(savedNum.toString());
-        Toast.makeText(this, "Loaded", Toast.LENGTH_SHORT).show();
+        editTextStr.setText(savedText);
+//        Toast.makeText(this, "Loaded", Toast.LENGTH_SHORT).show();
     }
 
     public void play(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        startActivity(intent);
     }
 
     public void pause(View view) {
@@ -76,30 +76,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void stop(View view) {
     }
 
-    public static class Main extends AppCompatActivity {
-        private final int[] mDrawablesArray = {R.drawable.neitralnoe, R.drawable.schastie, R.drawable.zlost_,
-        };
-        ViewFlipper mViewFlipper;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-
-            mViewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
-
-            for (int i = 0; i < mDrawablesArray.length; i++) {
-                setFlipperImage(mDrawablesArray[i]);
-            }
-
-            mViewFlipper.setAutoStart(true);
-            mViewFlipper.setFlipInterval(1500);
-        }
-
-        private void setFlipperImage(int resId) {
-            ImageView image = new ImageView(getApplicationContext());
-            image.setBackgroundResource(resId);
-            mViewFlipper.addView(image);
-        }
-    }
 }

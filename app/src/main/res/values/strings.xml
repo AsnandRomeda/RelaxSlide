@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RelaxSlide</string>
+    <string name="put_number">пометь тут</string>
+    <string name="write_here">пиши сюда / читай отсюда</string>
 </resources>

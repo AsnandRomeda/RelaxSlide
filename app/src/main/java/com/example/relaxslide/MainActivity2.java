@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import android.media.MediaPlayer;
@@ -13,7 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity implements MainActivity_2 {
     MediaPlayer mPlayer;
 
 
@@ -39,8 +40,8 @@ public class MainActivity2 extends AppCompatActivity {
 
         mViewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
 
-        for (int i = 0; i < mDrawablesArray.length; i++) {
-            setFlipperImage(mDrawablesArray[i]);
+        for (int j : mDrawablesArray) {
+            setFlipperImage(j);
         }
 
         mViewFlipper.setAutoStart(true);
@@ -78,11 +79,79 @@ public class MainActivity2 extends AppCompatActivity {
         }
 
         final int[] texts = {
-                R.string.happiness,
-                R.string.anger,
-                R.string.depression,
+                R.string.счастье,
+                R.string.злость,
+                R.string.депрессия,
         };
     }
 
+    private final int[] mDrawablesArray2 = {R.drawable.dolphin, R.drawable.sea, R.drawable.sun,
+    };
+    ViewFlipper mViewFlipper2;
 
+
+    public class MainActivity3 extends AppCompatActivity implements MainActivity_2 {
+        MediaPlayer mPlayer;
+
+        protected void onCreate1(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main2);
+
+
+            mPlayer = MediaPlayer.create(this, R.raw.happines);
+            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    //     stopPlay();
+                }
+            });
+            mPlayer.start();
+
+
+            mViewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
+
+            for (int i = 0; i < mDrawablesArray.length; i++) {
+                setFlipperImage(mDrawablesArray[i]);
+            }
+
+            mViewFlipper.setAutoStart(true);
+            mViewFlipper.setFlipInterval(1500);
+        }
+
+        private void setFlipperImage2(int resId) {
+            ImageView image = new ImageView(getApplicationContext());
+            image.setBackgroundResource(resId);
+            mViewFlipper.addView(image);
+        }
+
+        public void stop2(View view) {
+            mPlayer.stop();
+            Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public class MainActivity_second extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            TextView textView = new TextView(this);
+            textView.setTextSize(26);
+            textView.setPadding(16, 16, 16, 16);
+
+            Bundle arguments = getIntent().getExtras();
+
+            if(arguments!=null){
+                String name = arguments.get("name").toString();
+                String company = arguments.getString("company");
+                int age = arguments.getInt("age");
+                textView.setText("Name: " + name + "\nCompany: " + company +
+                        "\nAge: " + age);
+            }
+
+            setContentView(textView);
+        }
+    }
 }

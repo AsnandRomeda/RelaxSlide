@@ -1,7 +1,6 @@
 package com.example.relaxslide;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,9 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.ViewFlipper;
+
 public class MainActivity extends Activity implements View.OnClickListener {
 
     EditText editTextStr, editTextNum;
@@ -76,5 +73,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void stop(View view) {
     }
 
+    Intent intent = new Intent(this, MainActivity2.class);
+    public <EditPhoto> void onClick2 (View view) {
+        EditText userEditText = (EditText) findViewById(R.id.счастье);
+        EditPhoto giftEditText = (EditPhoto) findViewById (R.drawable.dolphin, R.drawable.sun, R.drawable.sea);
+
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+
+        intent.putExtra("счастье", userEditText.getText().toString());
+
+        intent.putExtra("dolphin","sun","sea");((EditText) giftEditText).getText().toString();
+        startActivity(intent);
+
+
+    }
+
+    private void findViewById(int dolphin, int sun, int sea) {
+    }
 
 }

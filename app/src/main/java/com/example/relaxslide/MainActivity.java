@@ -51,11 +51,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
         editTextNum.setText("");editTextStr.setText("");
     }
-
+    String savedText;
     void loadData() {
         sharedPreferences = getPreferences(MODE_PRIVATE);
         String n_record=editTextNum.getText().toString();
-        String savedText = sharedPreferences.getString(n_record, "");
+        savedText = sharedPreferences.getString(n_record, "");
 //        Integer savedNum = sharedPreferences.getInt(editTextStr.getText().toString(), 0);
         //editTextStr.setText(savedText);
         editTextStr.setText(savedText);
@@ -64,14 +64,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void play(View view) {
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        intent.putExtra("myNote", savedText);
         startActivity(intent);
     }
 
-    public void pause(View view) {
+/*    public void pause(View view) {
     }
 
     public void stop(View view) {
-    }
+    }*/
+/*
 
     Intent intent = new Intent(this, MainActivity2.class);
     public <EditPhoto> void onClick2 (View view) {
@@ -90,5 +92,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void findViewById(int dolphin, int sun, int sea) {
     }
+*/
 
 }

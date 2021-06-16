@@ -17,8 +17,6 @@ public class MainActivity2 extends AppCompatActivity {
     MediaPlayer mPlayer;
 
 
-
-
     private final int[] mDrawablesArray = {R.drawable.neitralnoe, R.drawable.schastie, R.drawable.zlost_,
     };
     ViewFlipper mViewFlipper;
@@ -29,12 +27,11 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-
-        mPlayer= MediaPlayer.create(this, R.raw.happines);
+        mPlayer = MediaPlayer.create(this, R.raw.happines);
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-           //     stopPlay();
+                //     stopPlay();
             }
         });
         mPlayer.start();
@@ -55,9 +52,37 @@ public class MainActivity2 extends AppCompatActivity {
         image.setBackgroundResource(resId);
         mViewFlipper.addView(image);
     }
+
     public void stop(View view) {
         mPlayer.stop();
         Intent intent = new Intent(MainActivity2.this, MainActivity.class);
         startActivity(intent);
     }
+
+
+    public class Array {
+        public class Arrays {
+            final int[] images = {
+                    R.drawable.dolphin,
+                    R.drawable.sea,
+                    R.drawable.sun,
+
+                    R.drawable.galaxy_a,
+                    R.drawable.planet_a,
+                    R.drawable.stars_a,
+
+                    R.drawable.fall_d,
+                    R.drawable.light_d,
+                    R.drawable.water_d,
+            };
+        }
+
+        final int[] texts = {
+                R.string.happiness,
+                R.string.anger,
+                R.string.depression,
+        };
+    }
+
+
 }

@@ -38,7 +38,7 @@
         android:layout_marginTop="512dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#F4E998"
+        android:backgroundTint="#98F4AF"
         android:text="Вспомнить"
         android:textColor="@color/purple_500"
         android:visibility="visible"

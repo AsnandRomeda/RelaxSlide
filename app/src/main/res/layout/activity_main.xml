@@ -8,39 +8,45 @@
 
     <Button
         android:id="@+id/save"
-        android:layout_width="103dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="256dp"
-        android:layout_marginLeft="256dp"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="232dp"
         android:layout_marginTop="512dp"
         android:layout_marginEnd="71dp"
-        android:layout_marginRight="71dp"
         android:layout_marginBottom="94dp"
+        android:background="#5E34A8"
+        android:backgroundTint="#8EF2FF"
+        android:bottomRightRadius="50dp"
         android:text="Save"
+        android:textColor="#F6E888"
+        android:topRightRadius="50dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.593"
         tools:ignore="HardcodedText"
         tools:visibility="visible" />
 
     <Button
         android:id="@+id/load"
-        android:layout_width="178dp"
-        android:layout_height="55dp"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
         android:layout_marginStart="171dp"
         android:layout_marginTop="512dp"
-        android:layout_marginEnd="78dp"
+        android:layout_marginEnd="44dp"
         android:layout_marginBottom="16dp"
-        android:text="Вспомнить всё"
+        android:backgroundTint="#F4E998"
+        android:text="Вспомнить"
+        android:textColor="@color/purple_500"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/save"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.328"
         tools:ignore="HardcodedText,UnknownId"
         tools:visibility="visible" />
 
@@ -118,19 +124,17 @@
 
     <Button
         android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="6dp"
+        android:color="@color/purple_500"
         android:onClick="play"
-        android:text="Хочу расслабиться под свои воспоминания"
+        android:text="Хочу расслабиться под воспоминания"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:color="@color/design_default_color_primary"/>
-
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

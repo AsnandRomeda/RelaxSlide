@@ -19,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 //    private final int[] mDrawablesArray = {R.drawable.neutral, R.drawable.happiness, R.drawable.anger,};
     private final int[] mDrawablesArray_good = {R.drawable.sun, R.drawable.happiness, R.drawable.sea};
-    private final int[] mDrawablesArray_bad = {R.drawable.forest, R.drawable.fall_d, R.drawable.water_d};
+    private final int[] mDrawablesArray_bad = {R.drawable.forest_, R.drawable.fall_d, R.drawable.water_d};
     private final int[] mDrawablesArray_neutral = {R.drawable.stars_a, R.drawable.galaxy_a, R.drawable.planet_a};
 
     ViewFlipper mViewFlipper;

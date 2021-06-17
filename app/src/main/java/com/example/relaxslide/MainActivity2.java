@@ -9,22 +9,18 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import android.media.MediaPlayer;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-public class MainActivity2 extends AppCompatActivity implements MainActivity_2 {
+public class MainActivity2 extends AppCompatActivity {
     MediaPlayer mPlayer;
 
     String [] good_words={"радость","счастье","хорошо","прекрасно"};
     String [] bad_words={"печаль","больно","плохо"};
 
-//    private final int[] mDrawablesArray = {R.drawable.neitralnoe, R.drawable.schastie, R.drawable.zlost_,};
-    private final int[] mDrawablesArray_good = {R.drawable.sun, R.drawable.schastie, R.drawable.dolphin};
-    private final int[] mDrawablesArray_bad = {R.drawable.zlost_, R.drawable.fall_d, R.drawable.water_d};
-    private final int[] mDrawablesArray_neutral = {R.drawable.stars_a, R.drawable.sea, R.drawable.planet_a, R.drawable.neitralnoe
-            , R.drawable.galaxy_a};
+//    private final int[] mDrawablesArray = {R.drawable.neutral, R.drawable.happiness, R.drawable.anger,};
+    private final int[] mDrawablesArray_good = {R.drawable.sun, R.drawable.happiness, R.drawable.sea};
+    private final int[] mDrawablesArray_bad = {R.drawable.forest, R.drawable.fall_d, R.drawable.water_d};
+    private final int[] mDrawablesArray_neutral = {R.drawable.stars_a, R.drawable.galaxy_a, R.drawable.planet_a};
 
     ViewFlipper mViewFlipper;
 
@@ -46,19 +42,19 @@ public class MainActivity2 extends AppCompatActivity implements MainActivity_2 {
         //если хорошо
         if(is_good && (!is_bad) ) {
             for (int j1 : mDrawablesArray_good) setFlipperImage(j1);
-            mPlayer = MediaPlayer.create(this, R.raw.happines);
+            mPlayer = MediaPlayer.create(this, R.raw.happiness);
         }
         else
         //если плохо
         if(!is_good && (is_bad) ) {
             for (int j2 : mDrawablesArray_bad) setFlipperImage(j2);
-            mPlayer = MediaPlayer.create(this, R.raw.happines);
+            mPlayer = MediaPlayer.create(this, R.raw.bad);
         }
         else
-        //если никак
+        //если нейтральное
         {
             for (int j3 : mDrawablesArray_neutral) setFlipperImage(j3);
-            mPlayer = MediaPlayer.create(this, R.raw.happines);
+            mPlayer = MediaPlayer.create(this, R.raw.neutral);
         }
 
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -125,7 +121,7 @@ public class MainActivity2 extends AppCompatActivity implements MainActivity_2 {
             setContentView(R.layout.activity_main2);
 
 
-            mPlayer = MediaPlayer.create(this, R.raw.happines);
+            mPlayer = MediaPlayer.create(this, R.raw.happiness);
             mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
